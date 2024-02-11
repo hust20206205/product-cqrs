@@ -1,21 +1,19 @@
 import { Module } from '@nestjs/common';
-import { CqrsModule } from '@nestjs/cqrs';
+import { ProductService } from '../tam/product.service';
+import { ProductController } from '../tam/product.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ProductApplications } from './core/application/product.application';
-import { ProductInfrastructure } from './infrastructure/product.infrastructure';
-import { ProductInterface } from './interface/product.interface';
+import { Product } from '../tam/product.entity';
 
 @Module({
-  imports: [
-    TypeOrmModule.forFeature([...ProductInfrastructure.repositories]),
-    CqrsModule,
-  ],
-  providers: [
-    ...ProductInterface.resolvers,
-    ...ProductInfrastructure.providers,
-    ...ProductApplications,
-  ],
-  controllers: [...ProductInterface.controllers],
+    // TypeOrmModule.forFeature([...ProductInfrastructure.repositories]),
+  // CqrsModule,
+  imports: [TypeOrmModule.forFeature([Product])],
+  // controllers: [...ProductInterface.controllers],
+  controllers: [ProductController],
+  providers: [ProductService],
+  // ...ProductInterface.resolvers,
+  // ...ProductInfrastructure.providers,
+  // ...ProductApplications,
   exports: [],
 })
 export class ProductModule {}
