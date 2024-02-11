@@ -11,9 +11,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'localhost',
-      port: 3306,
+      port: 3307,
       username: 'root',
-      password: '',
+      password: 'root_password',
       database: 'nghia',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       autoLoadEntities: true,
