@@ -9,12 +9,12 @@ import {
   Body,
 } from '@nestjs/common';
 
-import { Product } from './product.entity';
-import { ProductService } from '../product/core/product.service';
+import { Product } from '../../../tam/product.entity';
+import { ProductService } from '../../core/product.service';
 
-import { CreateProductDto } from './create-product.dto';
-import { UpdateProductDto } from './update-product.dto';
-import { ResponseProductDto } from './response-product.dto';
+import { CreateProductDto } from '../dto/create-product.dto';
+import { UpdateProductDto } from '../dto/update-product.dto';
+import { ResponseProductDto } from '../dto/response-product.dto';
 
 import {
   ApiBody,
