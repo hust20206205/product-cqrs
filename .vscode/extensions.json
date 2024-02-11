@@ -7,6 +7,7 @@
         "esbenp.prettier-vscode",
         "streetsidesoftware.code-spell-checker",
         "ms-azuretools.vscode-docker",
-        "github.vscode-github-actions"
+        "github.vscode-github-actions",
+        "cweijan.vscode-myssql-client2"
     ]
 }
