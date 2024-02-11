@@ -2,10 +2,10 @@ import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 
-import { Product } from './product.entity';
+import { Product } from '../../tam/product.entity';
 
-import { CreateProductDto } from './create-product.dto';
-import { UpdateProductDto } from './update-product.dto';
+import { CreateProductDto } from '../../tam/create-product.dto';
+import { UpdateProductDto } from '../../tam/update-product.dto';
 
 @Injectable()
 export class ProductService {
