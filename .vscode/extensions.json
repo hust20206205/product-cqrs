@@ -8,6 +8,7 @@
         "streetsidesoftware.code-spell-checker",
         "ms-azuretools.vscode-docker",
         "github.vscode-github-actions",
-        "cweijan.vscode-myssql-client2"
+        "cweijan.vscode-myssql-client2",
+        "ms-vscode.vscode-typescript-next"
     ]
 }

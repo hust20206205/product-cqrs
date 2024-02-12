@@ -1,6 +1,7 @@
+import { Name } from "../value-objects/name";
+// AR
 export class Product {
-  productId: string;
-  name: string;
-  createdAt: Date;
-  // constructor(public id: string) {}
+  public name: Name;
+  public createdAt: Date;
+  constructor(public productId: string) {}
 }
