@@ -1,13 +1,16 @@
 import { ProductName } from '../value-objects/product-name';
 import { AggregateRoot } from './aggregate-root';
 
-
 export class Product extends AggregateRoot<string> {
   name: ProductName;
   createdAt: Date;
 
-    constructor(id: string) {
+  constructor(id: string) {
     super(id);
+  }
+  
+  validate() {
+    this.name.validate();
   }
 
   static Builder(id: string): ProductBuilder {
@@ -15,14 +18,7 @@ export class Product extends AggregateRoot<string> {
   }
 }
 
-
-
-
-
-
-
-
-//       Factory 
+//       Factory
 class ProductBuilder {
   private product: Product;
 
@@ -31,7 +27,6 @@ class ProductBuilder {
   }
 
   withName(name: ProductName): ProductBuilder {
-    name.validate()
     this.product.name = name;
     return this;
   }
