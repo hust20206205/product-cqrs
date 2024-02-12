@@ -1,4 +1,4 @@
-import { Name } from "../value-objects/name";
+import { Name } from "../value-objects/product-name";
 // AR
 export class Product {
   public name: Name;

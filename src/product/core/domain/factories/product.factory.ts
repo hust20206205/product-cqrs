@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { randomUUID } from 'crypto';
-import { Name } from '../value-objects/name';
+import { Name } from '../value-objects/product-name';
 import { Product } from '../entities/product';
 
 @Injectable()
