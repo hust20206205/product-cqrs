@@ -1,5 +1,5 @@
 import { ProductName } from '../value-objects/product-name';
-import { AggregateRoot } from './aggregate-root.base';
+import { AggregateRoot } from './aggregate-root';
 
 export class Product extends AggregateRoot<string> {
   constructor(id: string) {
