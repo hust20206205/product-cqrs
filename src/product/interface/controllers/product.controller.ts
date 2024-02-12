@@ -35,9 +35,9 @@ export class ProductController {
   @ApiResponse({ status: 201, type: ResponseProductDto })
   @ApiBody({ type: CreateProductDto })
   async create(@Body() createProductDto: CreateProductDto): Promise<Product> {
-    return await this.productService.create(new CreateProductCommand(
-      createProductDto.name
-    ));
+    return await this.productService.create(
+      new CreateProductCommand(createProductDto.name),
+    );
   }
 
   @Get()

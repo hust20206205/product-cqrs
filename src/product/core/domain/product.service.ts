@@ -2,8 +2,11 @@ import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 
-import { Product } from '../../infrastructure/entities/product.entity';
+import { Product as ProductI } from '../../infrastructure/entities/product.entity';
 import { CreateProductCommand } from '../application/commands/create-product/create-product.command';
+import { Product } from './entities/product';
+import { ProductName } from './value-objects/product-name';
+import { randomUUID } from 'crypto';
 
 // import { CreateProductDto } from '../interface/dto/create-product.dto';
 // import { UpdateProductDto } from '../interface/dto/update-product.dto';
@@ -11,16 +14,23 @@ import { CreateProductCommand } from '../application/commands/create-product/cre
 @Injectable()
 export class ProductService {
   constructor(
-    @InjectRepository(Product)
-    private readonly productRepository: Repository<Product>,
+    @InjectRepository(ProductI)
+    private readonly productRepository: Repository<ProductI>,
   ) {}
-  async create(createProductDto: CreateProductCommand): Promise<Product> {
-    const newProduct = this.productRepository.create();
+  async create(createProductCommand: CreateProductCommand) {
+    const newProduct = Product.Builder(randomUUID())
+      .withName(new ProductName(createProductCommand.name))
+      .withCreatedAt(new Date())
+      .build();
+    console.log(newProduct);
+    // const newProduct = this.productRepository.create(
+    //   createProductCommand.name
+    // );
 
-    return await this.productRepository.save(newProduct);
+    // return await this.productRepository.save(newProduct);
   }
 
-  async findAll(): Promise<Product[]> {
+  async findAll() {
     return await this.productRepository.find();
   }
 
