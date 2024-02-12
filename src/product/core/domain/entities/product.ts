@@ -8,7 +8,7 @@ export class Product extends AggregateRoot<string> {
   constructor(id: string) {
     super(id);
   }
-  
+
   validate() {
     this.name.validate();
   }
