@@ -9,9 +9,6 @@ export class Product extends AggregateRoot<string> {
     super(id);
   }
 
-  validate() {
-    this.name.validate();
-  }
 
   static Builder(id: string): ProductBuilder {
     return new ProductBuilder(id);

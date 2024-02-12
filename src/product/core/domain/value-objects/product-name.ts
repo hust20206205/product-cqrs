@@ -1,7 +1,9 @@
 import { ProductException } from '../exceptions/product.exception';
 
 export class ProductName {
-  constructor(readonly value: string) {}
+  constructor(readonly value: string) {
+    this.validate()
+  }
 
   validate() {
     const regex = /^[a-zA-Z0-9]+$/;
