@@ -8,40 +8,41 @@ export class Product extends AggregateRoot<string> {
     super(id);
   }
 }
+
 export class Builder {
-  // private name: ProductName = undefined;
-  // private createdAt: Date = undefined;
+  private name: ProductName | undefined;
+  private createdAt: Date | undefined;
 
-  // private constructor(){}
+  constructor() {}
 
-  // public static creer(): Builder { 
-  // return new Builder();
-  // }
+  public static create(): Builder { 
+    return new Builder();
+  }
 
-  // public static creerDepuisExistant( existant :): Builder { 
-  // let builder = new Builder();
-  // builder.name = existant.name
-  // builder.createdAt = existant.createdAt
-  // return builder;
-  // }
+  public withName(v: ProductName): Builder {
+    this.name = v;
+    return this;
+  }
 
-  // public build():  {
-  // return {
-  // "name": this.name,
-  // "createdAt": this.createdAt,
-  // }
-  // }
+  public withCreatedAt(v: Date): Builder {
+    this.createdAt = v;
+    return this;
+  }
 
-  // public avecName(v: ProductName): Builder {
-  // this.name= v; //COMMENT INSTANCIER UN NOUVEAU 
-  // return this;
-  // }
-
-  // public avecCreatedAt(v: Date): Builder {
-  // this.createdAt= v; //COMMENT INSTANCIER UN NOUVEAU 
-  // return this;
-  // }
-
+  public build(): Product {
+    if (!this.name || !this.createdAt) {
+      throw new Error('Name and createdAt are required to build Product');
+    }
+    const product = new Product('someId'); // Provide an appropriate id here
+    product.name = this.name;
+    product.createdAt = this.createdAt;
+    return product;
+  }
 }
-const :  = null; //TODO
- 
+
+// Usage
+const builder = Builder.create();
+const productName = new ProductName('Some Product');
+const createdAt = new Date();
+const product = builder.withName(productName).withCreatedAt(createdAt).build();
+console.log(product);
