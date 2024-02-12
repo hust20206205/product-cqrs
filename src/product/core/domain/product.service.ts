@@ -18,16 +18,22 @@ export class ProductService {
     private readonly productRepository: Repository<ProductI>,
   ) {}
   async create(createProductCommand: CreateProductCommand) {
-    const newProduct = Product.Builder(randomUUID())
-      .withName(new ProductName(createProductCommand.name))
-      .withCreatedAt(new Date())
-      .build();
-    console.log(newProduct);
-    // const newProduct = this.productRepository.create(
-    //   createProductCommand.name
-    // );
+    try {
+      const newProduct = Product.Builder(randomUUID())
+        .withName(new ProductName(createProductCommand.name))
+        .withCreatedAt(new Date())
+        .build();
+      console.log(newProduct);
+      return newProduct;
+      // const newProduct = this.productRepository.create(
+      //   createProductCommand.name
+      // );
 
-    // return await this.productRepository.save(newProduct);
+      // return await this.productRepository.save(newProduct);
+      // }
+    } catch (error) {
+      return { error: error.message };
+    }
   }
 
   async findAll() {
