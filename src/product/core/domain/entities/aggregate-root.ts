@@ -1,3 +1,3 @@
-import { Entity } from './base-entity';
+import { BaseEntity } from './base-entity';
 
-export abstract class AggregateRoot<T> extends Entity<T> {}
+export abstract class AggregateRoot<T> extends BaseEntity<T> {}
