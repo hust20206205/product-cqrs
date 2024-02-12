@@ -2,6 +2,9 @@ export class ProductName {
   constructor(readonly value: string) {}
 
   validate() {
-    return this.value.length > 5;
+    const regex = /^[a-zA-Z0-9]+$/;
+    if (!regex.test(this.value)) {
+      throw new Error('Tên chỉ có thể chứa chữ cái và số.');
+    }
   }
 }
