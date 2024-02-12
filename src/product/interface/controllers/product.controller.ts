@@ -23,6 +23,7 @@ import {
   ApiResponse,
   ApiTags,
 } from '@nestjs/swagger';
+import { CreateProductCommand } from 'src/product/core/application/commands/create-product/create-product.command';
 
 @Controller('product')
 @ApiTags('product')
@@ -34,7 +35,9 @@ export class ProductController {
   @ApiResponse({ status: 201, type: ResponseProductDto })
   @ApiBody({ type: CreateProductDto })
   async create(@Body() createProductDto: CreateProductDto): Promise<Product> {
-    return await this.productService.create(createProductDto);
+    return await this.productService.create(new CreateProductCommand(
+      createProductDto.name
+    ));
   }
 
   @Get()
