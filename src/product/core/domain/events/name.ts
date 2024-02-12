@@ -1,7 +1,7 @@
-export class Name {
-  constructor(readonly value: string) {}
+// export class Name {
+//   constructor(readonly value: string) {}
 
-  validate() {
-    return this.value.length > 5;
-  }
-}
+//   validate() {
+//     return this.value.length > 5;
+//   }
+// }
