@@ -1,4 +1,4 @@
-export class Name {
+export class ProductName {
   constructor(readonly value: string) {}
 
   validate() {

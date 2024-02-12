@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { randomUUID } from 'crypto';
-import { Name } from '../value-objects/product-name';
+import { ProductName } from '../value-objects/product-name';
 import { Product } from '../entities/product';
 
 @Injectable()
 export class   ProductFactory {
   create(
-    name: Name,
+    name: ProductName,
     createdAt: Date,
   ) {
     const productId = randomUUID();
