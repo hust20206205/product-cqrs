@@ -1,2 +1,1 @@
-export abstract class CreateProductPort {
-}
+export abstract class CreateProductPort {}

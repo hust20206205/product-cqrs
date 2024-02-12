@@ -11,6 +11,7 @@
         "cweijan.vscode-myssql-client2",
         "ms-vscode.vscode-typescript-next",
         "frasercrosbie.typescript-interface-to-builder-class",
-        "riki-larson.ts-interface-builder"
+        "riki-larson.ts-interface-builder",
+        "christian-kohler.path-intellisense"
     ]
 }

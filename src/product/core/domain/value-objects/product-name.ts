@@ -2,7 +2,7 @@ import { ProductException } from '../exceptions/product.exception';
 
 export class ProductName {
   constructor(readonly value: string) {
-    this.validate()
+    this.validate();
   }
 
   validate() {

@@ -9,7 +9,6 @@ export class Product extends AggregateRoot<string> {
     super(id);
   }
 
-
   static Builder(id: string): ProductBuilder {
     return new ProductBuilder(id);
   }
